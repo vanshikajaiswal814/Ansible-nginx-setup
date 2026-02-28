@@ -31,7 +31,7 @@ The playbook performs the following tasks:
 └── README.md
 
 ### 1️⃣ Clone the Repository
-git clone 
+git clone https://github.com/vanshikajaiswal814/Ansible-nginx-setup.git
 
 
 ### 2️⃣ Update Inventory File
