@@ -1,0 +1,34 @@
+
+PLAY [Install and Manage Nginx] ************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [172.31.11.225]
+
+TASK [Update apt cache] ********************************************************
+changed: [172.31.11.225]
+
+TASK [Install Nginx] ***********************************************************
+changed: [172.31.11.225]
+
+TASK [Start and enable Nginx] **************************************************
+ok: [172.31.11.225]
+
+TASK [Check Nginx version] *****************************************************
+changed: [172.31.11.225]
+
+TASK [Display Nginx version] ***************************************************
+ok: [172.31.11.225] => {
+    "nginx_version.stderr": "nginx version: nginx/1.24.0 (Ubuntu)"
+}
+
+TASK [Check if Nginx is running] ***********************************************
+changed: [172.31.11.225]
+
+TASK [Display Nginx status] ****************************************************
+ok: [172.31.11.225] => {
+    "nginx_status.stdout": "active"
+}
+
+PLAY RECAP *********************************************************************
+172.31.11.225              : ok=8    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

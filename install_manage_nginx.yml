@@ -1,0 +1,39 @@
+---
+- name: Install and Manage Nginx 
+  hosts: all
+  become: yes # by default this will execute the ansible playbook as a root user
+
+
+  tasks:
+
+    - name: Update apt cache # this is going to describe my task
+      apt:
+        update_cache: yes 
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Start and enable Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Check Nginx version
+      command: nginx -v
+      register: nginx_version
+      ignore_errors: yes
+
+    - name: Display Nginx version
+      debug:
+        var: nginx_version.stderr
+
+    - name: Check if Nginx is running
+      command: systemctl is-active nginx
+      register: nginx_status
+
+    - name: Display Nginx status
+      debug:
+        var: nginx_status.stdout
